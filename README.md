@@ -1,2 +1,0 @@
-# zaicamp
-Task Management

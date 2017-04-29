@@ -1,0 +1,38 @@
+@CHARSET "ISO-8859-1";
+
+.page {
+    min-height: 400px;
+    width: 940px;
+	margin: 0 auto;
+}
+
+.pagebg {
+    background-color: #9a9a9a;
+}
+
+.header {
+    background-color: #6a6a6a;
+}
+
+.footer {
+    background-color: #6a6a6a;
+    min-height: 100px;
+}
+
+.copyright.floatright {
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.copyright.floatleft {
+    width: 520px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.center {
+	padding-left: 250px;
+}
+
