@@ -9,9 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AddController {
-	
-	@RequestMapping(value="/addClient.html", method=RequestMethod.POST)
-	public ModelAndView saveClientDetails(HttpServletRequest request){
+
+	@RequestMapping(value = "/addClient.html", method = RequestMethod.POST)
+	public ModelAndView saveClientDetails(HttpServletRequest request) {
 		System.out.println(request.getParameterNames());
 		ModelAndView mv = new ModelAndView("success");
 		return mv;
