@@ -20,7 +20,7 @@
 
 	<div class="footer">
 		<div class="copyright floatleft">
-			<div><span>Copyrigth: ZaiCamp Services: All rigths are reserved by ZaiCamp Services company.</span></div>
+			<div><span>Copyright: ZaiCamp Services: All rights are reserved by ZaiCamp Services company.</span></div>
 		</div>
 		<div class="copyright floatright">
 			<a id="homeLink" href="http://www.adesa.com">About Us</a>| <a

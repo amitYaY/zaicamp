@@ -11,9 +11,6 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<mvc:annotation-driven />
-	<context:component-scan base-package="org.zaicamp.controller" />
-
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -32,16 +29,42 @@
 		<property name="mappings">
 			<value>
 				/homeControl.html=homeController
+				/addClient.html=addController
 			</value>
 		</property>
 		<!-- <property name="order" value="0"/> -->
 	</bean>
-
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	    <property name="url" value="jdbc:mysql://localhost:3306/springdb"/>
+	    <property name="username" value="root"/>
+	    <property name="password" value="root"/>
+	</bean>
+	
+	<bean id="sessionFactory"
+	    class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource" />
+	    <property name="configLocation" value="classpath:hibernate.cfg.xml" />
+	</bean>
+	
+	<bean id="clientService" class="org.zaicamp.service.impl.ClientServiceImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	
 	<!-- <mvc:default-servlet-handler /> like config default servlet in web.xml -->
 	<!-- or -->
-	<mvc:resources mapping="/images/**" location="/images/" />
-	<mvc:resources mapping="/css/**" location="/css/" />
+	<!-- <mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/css/**" location="/css/" /> -->
 
 	<bean id="homeController" class="org.zaicamp.controller.HomeController" />
+	
+	<bean id="addController" class="org.zaicamp.controller.AddController" >
+		<constructor-arg>
+			<ref bean="clientService"/>
+		</constructor-arg>
+	</bean>
 
 </beans>

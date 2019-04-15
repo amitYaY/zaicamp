@@ -1,20 +1,32 @@
 package org.zaicamp.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.AbstractController;
+import org.zaicamp.entity.Client;
+import org.zaicamp.service.ClientService;
 
-@Controller
-public class AddController {
+public class AddController extends AbstractController {
 
-	@RequestMapping(value = "/addClient.html", method = RequestMethod.POST)
-	public ModelAndView saveClientDetails(HttpServletRequest request) {
-		System.out.println(request.getParameterNames());
-		ModelAndView mv = new ModelAndView("success");
-		return mv;
+	private ClientService clientService;
+	
+	public AddController(ClientService clientService) {
+		this.clientService = clientService;
+	}
+	
+	@Override
+	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		String clientName = request.getParameter("clientName");
+		
+		Client client = new Client();
+		client.setClientName(clientName);
+		
+		clientService.saveClient(client);
+		
+		return new ModelAndView("addClient");
 	}
 
 }

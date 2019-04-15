@@ -22,7 +22,7 @@
 <title>ZaiCamp-Add Client</title>
 </head>
 <body>
-	<form action="addClient.html" method="post">
+	<form action="/homeControl.html" method="post">
 			<table class="center">
 				<thead>
 					<tr>

@@ -22,9 +22,9 @@
 <body>
 	<div class="page">
 		<p>
-			Hi There<br>Now you are on Home Page.
+			Hi There!<br>Now you are on Home Page.
 		</p>
-		<form action="addClient.html" method="post">
+		<form action="/homeControl.html" method="post">
 			<table class="center">
 				<thead>
 					<tr>
